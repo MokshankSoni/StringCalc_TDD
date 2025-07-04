@@ -70,5 +70,13 @@ public class StringCalcTest
         assertEquals(2,calc.add("1001,1,1"));
     }
 
+    @Test
+    void multiLengthDelimeter()
+    {
+        // added a check of negative numbers in add() func that throws exception on a negative number
+        StringCalc calc = new StringCalc();
+
+        assertEquals(4,calc.add("//[**]\n3**1"));
+    }
 
 }
