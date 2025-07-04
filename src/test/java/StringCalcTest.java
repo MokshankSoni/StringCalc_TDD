@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StringCalc_Test
+public class StringCalcTest
 {
     @Test
     void emptyString()
@@ -21,5 +21,15 @@ public class StringCalc_Test
 
         StringCalc calc = new StringCalc();
         assertEquals(1 ,calc.add("1"));
+    }
+
+    @Test
+    void sumOfTwoInt()
+    {
+        //tested for comma separated two integers in string should return the sum of two but failed
+        //updated the add() function to handle two numbers in a string with comma separation
+
+        StringCalc calc = new StringCalc();
+        assertEquals(9,calc.add("3,6"));
     }
 }

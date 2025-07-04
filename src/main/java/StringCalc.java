@@ -5,6 +5,17 @@ public class StringCalc
             return 0;
         }
 
-        return Integer.parseInt(num);
+        String numbers[] = num.split(",");
+
+        if(numbers.length == 1)
+            return Integer.parseInt(numbers[0]);
+        else{
+            int ans = 0;
+            for(String number : numbers)
+            {
+                ans += Integer.parseInt(number);
+            }
+            return ans;
+        }
     }
 }
