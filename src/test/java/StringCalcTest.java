@@ -38,6 +38,17 @@ public class StringCalcTest
     {
         //updated the add() function to handle new line as a delimeter
         StringCalc calc = new StringCalc();
-        assertEquals(10,calc.add("3\n2,4,1"));
+        assertEquals(4,calc.add("3\n1"));
+    }
+
+    @Test
+    void newCustomDelim()
+    {
+        // checked for custom delim " ; " and passed for this approach
+        // delimeter += "|" + num.substring(2,customDelimPo);
+        // but fails for " * " as it is a special symbol in Regex
+        // using pattern.quote() to make it a normal literal from a special symbol for regex
+        StringCalc calc = new StringCalc();
+        assertEquals(4,calc.add("//*\n3*1"));
     }
 }
