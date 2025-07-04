@@ -73,10 +73,19 @@ public class StringCalcTest
     @Test
     void multiLengthDelimeter()
     {
-        // added a check of negative numbers in add() func that throws exception on a negative number
+        // handled the multi length delimeter given in a specific format
         StringCalc calc = new StringCalc();
 
         assertEquals(4,calc.add("//[**]\n3**1"));
+    }
+
+    @Test
+    void multipleDelimeter()
+    {
+        // handled multiple delimeter using in the calculator created at the time of assigning the string
+        StringCalc calc = new StringCalc();
+
+        assertEquals(6,calc.add("//[*][%]\n1*2%3"));
     }
 
 }
