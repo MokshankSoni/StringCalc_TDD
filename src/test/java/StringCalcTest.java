@@ -61,5 +61,14 @@ public class StringCalcTest
         assertEquals(2,calc.add("1,-3,4,5,-6,1")); //throws illegal argument exception
     }
 
+    @Test
+    void numGreaterThan1000()
+    {
+        // added the check to ignore the numbers greater than 1000
+        StringCalc calc = new StringCalc();
+
+        assertEquals(2,calc.add("1001,1,1"));
+    }
+
 
 }

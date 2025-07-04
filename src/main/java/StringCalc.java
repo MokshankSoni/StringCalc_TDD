@@ -38,7 +38,9 @@ public class StringCalc
             int value = Integer.parseInt(number);
             if(value<0)
                 negativeNum.add(value);
-            ans += value;
+
+            if(value<=1000)
+                ans += value;
         }
 
         if(!negativeNum.isEmpty())
