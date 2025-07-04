@@ -12,4 +12,14 @@ public class StringCalc_Test
         StringCalc calc = new StringCalc();
         assertEquals(0 ,calc.add(""));
     }
+
+    @Test
+    void singleInt()
+    {
+        //testing the single integer string without updating the add()
+        // and after updating add() to handle single integer
+
+        StringCalc calc = new StringCalc();
+        assertEquals(1 ,calc.add("1"));
+    }
 }

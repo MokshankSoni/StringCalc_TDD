@@ -5,6 +5,6 @@ public class StringCalc
             return 0;
         }
 
-        return 0;
+        return Integer.parseInt(num);
     }
 }
