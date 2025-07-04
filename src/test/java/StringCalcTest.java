@@ -21,6 +21,7 @@ public class StringCalcTest
 
         StringCalc calc = new StringCalc();
         assertEquals(1 ,calc.add("1"));
+        assertEquals(10 ,calc.add("10"));
     }
 
     @Test
@@ -30,6 +31,7 @@ public class StringCalcTest
         //updated the add() function to handle multiple numbers in a string with comma separation
 
         StringCalc calc = new StringCalc();
+        assertEquals(3,calc.add("3"));
         assertEquals(14,calc.add("3,6,5"));
     }
 
@@ -39,6 +41,8 @@ public class StringCalcTest
         //updated the add() function to handle new line as a delimeter
         StringCalc calc = new StringCalc();
         assertEquals(4,calc.add("3\n1"));
+        assertEquals(9,calc.add("3\n1,5"));
+        assertEquals(15,calc.add("3\n1,5,4\n2"));
     }
 
     @Test
@@ -49,7 +53,10 @@ public class StringCalcTest
         // but fails for "*" as it is a special symbol in Regex
         // using pattern.quote() to make it a normal literal from a special symbol for regex
         StringCalc calc = new StringCalc();
+        assertEquals(4,calc.add("//;\n3;1"));
         assertEquals(4,calc.add("//*\n3*1"));
+        // ( input edge case ) assertEquals(4,calc.add("//*\n3;1"));
+        assertEquals(4,calc.add("//?\n3?1"));
     }
 
     @Test
@@ -59,6 +66,8 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
 
         assertEquals(2,calc.add("1,-3,4,5,-6,1")); //throws illegal argument exception
+        assertEquals(7,calc.add("1,5,1"));
+        assertEquals(2,calc.add("-1,-3,-4,-5,-6,-1"));
     }
 
     @Test
@@ -68,6 +77,9 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
 
         assertEquals(2,calc.add("1001,1,1"));
+        assertEquals(1000,calc.add("1001,1000"));
+        assertEquals(0,calc.add("1001,1002"));
+        assertEquals(2,calc.add("1,1"));
     }
 
     @Test
@@ -77,6 +89,8 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
 
         assertEquals(4,calc.add("//[**]\n3**1"));
+        assertEquals(4,calc.add("//[?]\n3?1"));
+        //( false input edge case ) assertEquals(4,calc.add("//[...]\n3..1"));
     }
 
     @Test
@@ -86,12 +100,15 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
 
         assertEquals(6,calc.add("//[*][%]\n1*2%3"));
+        assertEquals(6,calc.add("//[?][.]\n1?2?3"));
+        assertEquals(3,calc.add("//[*][%]\n3"));
     }
 
     @Test
-    void multiDelimeterWithGreaterLength() {
+    void multipleDelimeterWithGreaterLength() {
         StringCalc calc = new StringCalc();
         assertEquals(6, calc.add("//[***][%%]\n1***2%%3"));
+        assertEquals(8, calc.add("//[***][.]\n1***3.4"));
     }
 
 
