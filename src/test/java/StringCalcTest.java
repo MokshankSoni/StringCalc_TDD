@@ -44,11 +44,24 @@ public class StringCalcTest
     @Test
     void newCustomDelim()
     {
-        // checked for custom delim " ; " and passed for this approach
+        // checked for custom delim ";" and passed for this approach
         // delimeter += "|" + num.substring(2,customDelimPo);
-        // but fails for " * " as it is a special symbol in Regex
+        // but fails for "*" as it is a special symbol in Regex
         // using pattern.quote() to make it a normal literal from a special symbol for regex
         StringCalc calc = new StringCalc();
         assertEquals(4,calc.add("//*\n3*1"));
     }
+
+    @Test
+    void negativeNumCheck()
+    {
+        // added a check of negative numbers in add() func that throws exception on a negative number
+        StringCalc calc = new StringCalc();
+
+        //assertEquals(2,calc.add("1,-3,4")); //throws illegal argument exception
+
+        assertEquals(8,calc.add("1,3,4"));
+    }
+
+
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalc
@@ -28,10 +30,21 @@ public class StringCalc
         String[] numbers = num.split(delimeter);
 
         int ans = 0;
+        boolean negative = false;
+
         for(String number : numbers)
         {
-            ans += Integer.parseInt(number);
+            int value = Integer.parseInt(number);
+            if(value<0)
+                negative = true;
+            ans += value;
         }
+
+        if(negative)
+        {
+            throw new IllegalArgumentException("Negative numbers not allowed");
+        }
+
         return ans;
 
     }
