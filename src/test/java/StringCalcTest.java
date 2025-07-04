@@ -59,8 +59,6 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
 
         assertEquals(2,calc.add("1,-3,4,5,-6,1")); //throws illegal argument exception
-
-        //assertEquals(8,calc.add("1,3,4"));
     }
 
 
