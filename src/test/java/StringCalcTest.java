@@ -24,12 +24,20 @@ public class StringCalcTest
     }
 
     @Test
-    void sumOfTwoInt()
+    void sumOfMultiInt()
     {
         //tested for comma separated two integers in string should return the sum of two but failed
-        //updated the add() function to handle two numbers in a string with comma separation
+        //updated the add() function to handle multiple numbers in a string with comma separation
 
         StringCalc calc = new StringCalc();
-        assertEquals(9,calc.add("3,6"));
+        assertEquals(14,calc.add("3,6,5"));
+    }
+
+    @Test
+    void newLineDelim()
+    {
+        //updated the add() function to handle new line as a delimeter
+        StringCalc calc = new StringCalc();
+        assertEquals(10,calc.add("3\n2,4,1"));
     }
 }
