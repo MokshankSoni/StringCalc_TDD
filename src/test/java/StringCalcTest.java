@@ -58,9 +58,9 @@ public class StringCalcTest
         // added a check of negative numbers in add() func that throws exception on a negative number
         StringCalc calc = new StringCalc();
 
-        //assertEquals(2,calc.add("1,-3,4")); //throws illegal argument exception
+        assertEquals(2,calc.add("1,-3,4,5,-6,1")); //throws illegal argument exception
 
-        assertEquals(8,calc.add("1,3,4"));
+        //assertEquals(8,calc.add("1,3,4"));
     }
 
 

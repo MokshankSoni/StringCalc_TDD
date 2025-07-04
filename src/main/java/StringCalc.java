@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class StringCalc
 {
@@ -30,19 +31,22 @@ public class StringCalc
         String[] numbers = num.split(delimeter);
 
         int ans = 0;
-        boolean negative = false;
+        List<Integer> negativeNum = new ArrayList<>();
 
         for(String number : numbers)
         {
             int value = Integer.parseInt(number);
             if(value<0)
-                negative = true;
+                negativeNum.add(value);
             ans += value;
         }
 
-        if(negative)
+        if(!negativeNum.isEmpty())
         {
-            throw new IllegalArgumentException("Negative numbers not allowed");
+            throw new IllegalArgumentException("Negative numbers not allowed : " +
+                    negativeNum.stream()
+                            .map(String::valueOf)
+                            .collect(Collectors.joining(", ")));
         }
 
         return ans;
