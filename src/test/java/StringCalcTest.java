@@ -55,7 +55,7 @@ public class StringCalcTest
         StringCalc calc = new StringCalc();
         assertEquals(4,calc.add("//;\n3;1"));
         assertEquals(4,calc.add("//*\n3*1"));
-        // ( input edge case ) assertEquals(4,calc.add("//*\n3;1"));
+        // (input edge case) assertEquals(4,calc.add("//*\n3;1"));
         assertEquals(4,calc.add("//?\n3?1"));
     }
 
@@ -110,6 +110,4 @@ public class StringCalcTest
         assertEquals(6, calc.add("//[***][%%]\n1***2%%3"));
         assertEquals(8, calc.add("//[***][.]\n1***3.4"));
     }
-
-
 }
